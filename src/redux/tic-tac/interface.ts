@@ -12,3 +12,9 @@ export interface MakesMove {
     type: ActionTypes.PLAYER_MAKES_MOVE,
     payload: number
 }
+
+export interface RestartGame {
+    type: ActionTypes.RESTART_GAME
+}
+
+export type Actions = MakesMove | RestartGame;

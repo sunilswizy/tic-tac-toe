@@ -1,29 +1,34 @@
 import initalBoxState from "./inital-state";
-import { TicTacToe, MakesMove } from "./interface";
+import { TicTacToe, Actions } from "./interface";
 import { ActionTypes } from "./action-types";
-import userMakesMove from "../utils/utils";
+import { userMakesMove, resetBoard} from "../utils/utils";
 
-export interface ticTacState {
+export interface TicTacState {
     box: TicTacToe[],
     nextMove: 'X' | 'O',
     isCompleted: boolean,
-    winner: 'P1' | 'P2' | null
+    playerOneWinCount: 0,
+    playerTwoWinCount: 0
 }
 
-const initalState: ticTacState = {
+const initalState: TicTacState = {
     box: initalBoxState,
     nextMove: 'X',
     isCompleted: false,
-    winner: null
+    playerOneWinCount: 0,
+    playerTwoWinCount: 0
 }
 
-const reducer = (state: ticTacState = initalState, action: MakesMove): ticTacState => {
+const reducer = (state: TicTacState = initalState, action: Actions): TicTacState => {
     switch(action.type) {
         case ActionTypes.PLAYER_MAKES_MOVE: {
             let newState = userMakesMove(state, action.payload);
             console.log("new", newState)
             return newState;
         }  
+        case ActionTypes.RESTART_GAME: {
+            return resetBoard(state);
+        }
         default:
             return state;
     }

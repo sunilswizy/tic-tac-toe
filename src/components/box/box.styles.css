@@ -1,5 +1,5 @@
 .box {
-    width: 133px;
+    width: 133.33px;
     height: 133px;
 }
 
@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 105%;
+    height: 100%;
 }
 
 .text {
