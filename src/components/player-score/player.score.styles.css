@@ -1,0 +1,41 @@
+.scoreBox{
+    width: 90px;
+    height: 90px;
+    background-color: rgb(95, 242, 227);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transition: 0.3s;
+}
+
+.player-1{
+    color: #b3aca2;
+}
+
+.player-2{
+    color: #eadfb9;
+}
+
+.scoreBox span {
+    font-size: 35px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.scoreBox:hover {
+    background-color: rgba(95, 242, 227, 0.7);
+}
+
+.player-score{
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-name{
+    font-size: 25px;
+    margin-top: 0;
+}
