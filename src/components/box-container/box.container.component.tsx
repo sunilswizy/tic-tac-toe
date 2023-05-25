@@ -5,7 +5,7 @@ import './box.container.styles.css';
 import { RootState } from "../../redux/root-reducer";
 
 const BoxContainer : React.FC = () => {
-    const { box, nextMove } = useSelector((state: RootState) => state.tic);
+    const { box } = useSelector((state: RootState) => state.tic);
 
     return (
         <div className="box-container">

@@ -7,6 +7,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: true,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: true,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 3,
@@ -21,20 +23,23 @@ const initalBoxState: TicTacToe[] = [
     bottom: true,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 4,
     right: true,
     bottom: true,
-    value: "O",
-    isTouched: true,
+    value: "",
+    isTouched: false,
+    isWin: false
   },
   {
     id: 5,
     right: true,
     bottom: true,
-    value: "X",
-    isTouched: true,
+    value: "",
+    isTouched: false,
+    isWin: false
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: true,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: false,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: false,
     value: "",
     isTouched: false,
+    isWin: false
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ const initalBoxState: TicTacToe[] = [
     bottom: false,
     value: "",
     isTouched: false,
+    isWin: false
   },
 ];
 

@@ -30,17 +30,29 @@ export const userMakesMove = (state: TicTacState, id: number) => {
 
 
 function checkGameComplete(box: TicTacToe[], player: 'X' | 'O') {
-    
-    return (box[0].value === player && box[4].value === player && box[8].value === player) ||
-           (box[1].value === player && box[4].value === player && box[7].value === player) || 
-           (box[2].value === player && box[4].value === player && box[6].value === player) ||
-           (box[3].value === player && box[4].value === player && box[5].value === player) ||
-           (box[0].value === player && box[1].value === player && box[2].value === player) ||
-           (box[0].value === player && box[3].value === player && box[6].value === player) ||
-           (box[2].value === player && box[5].value === player && box[8].value === player) ||
-           (box[6].value === player && box[7].value === player && box[8].value === player)
-}
 
+    let winState = [
+        [0, 4, 8],
+        [1, 4, 7],
+        [2, 4, 6],
+        [3, 4, 5],
+        [0, 1, 2],
+        [0, 3, 6],
+        [2, 5, 8],
+        [6, 7, 8]
+    ];
+
+    for(let [i, j, k] of winState) {
+        if(box[i].value === player && box[j].value === player && box[k].value === player) {
+            box[i].isWin = true;
+            box[j].isWin = true;
+            box[k].isWin = true;
+            return true;
+        }
+    }
+
+    return false;
+}
 
 export const resetBoard = (state: TicTacState) => {
     let newState: TicTacState = {

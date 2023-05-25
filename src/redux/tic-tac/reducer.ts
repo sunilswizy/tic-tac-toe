@@ -23,7 +23,6 @@ const reducer = (state: TicTacState = initalState, action: Actions): TicTacState
     switch(action.type) {
         case ActionTypes.PLAYER_MAKES_MOVE: {
             let newState = userMakesMove(state, action.payload);
-            console.log("new", newState)
             return newState;
         }  
         case ActionTypes.RESTART_GAME: {

@@ -5,7 +5,8 @@ export interface TicTacToe {
     right: boolean,
     bottom: boolean,
     value: 'X' | 'O' | '',
-    isTouched: boolean  
+    isTouched: boolean,
+    isWin: boolean
 };
 
 export interface MakesMove {

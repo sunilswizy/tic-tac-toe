@@ -6,7 +6,7 @@ import { makeMove } from "../../redux/tic-tac/actions";
 import { RootState } from "../../redux/root-reducer";
 
 
-const Box : React.FC<TicTacToe> = ({id, right, bottom, value, isTouched}) => {
+const Box : React.FC<TicTacToe> = ({id, right, bottom, value, isTouched, isWin}) => {
     const rightBorder = right ? 'right' : '';
     const bottomBorder = bottom ? 'bottom' : ''
     const AllBorder = `${rightBorder} ${bottomBorder}`;
@@ -22,7 +22,7 @@ const Box : React.FC<TicTacToe> = ({id, right, bottom, value, isTouched}) => {
 
     return <div className={`box ${AllBorder}`}>
         <div className="content" onClick={() => handleClick(id)}>
-            <h1 className={`text ${value}`}>{ value }</h1>
+            <h1 className={`text ${value} ${isCompleted ? 'drop-opacity' : ''} ${isWin ? 'win-'+ value : ''}`}>{ value }</h1>
         </div>
     </div>
 }

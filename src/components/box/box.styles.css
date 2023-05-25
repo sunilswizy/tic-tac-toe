@@ -17,7 +17,7 @@
 }
 
 .X {
-    color: #b3aca2;
+    color: #a69885;
 }
 
 .O {
@@ -30,4 +30,25 @@
 
 .right {
     border-right: 9px solid rgb(95, 242, 227);
+}
+
+.win-X{
+    animation: animate-winner 2s ease-in-out 0ms 5;
+    opacity: 1 !important;
+}
+
+.win-O{
+    animation: animate-winner 2s ease-in-out 0ms 5;
+    opacity: 1 !important;
+}
+
+.drop-opacity{
+    transition: all 0.5s;
+    opacity: 0.5;
+}
+
+@keyframes animate-winner {
+    0%   { scale: 1}
+    50%   { scale: 1.1}
+    0%   { scale: 1}
 }
