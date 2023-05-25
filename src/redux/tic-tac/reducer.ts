@@ -7,8 +7,8 @@ export interface TicTacState {
     box: TicTacToe[],
     nextMove: 'X' | 'O',
     isCompleted: boolean,
-    playerOneWinCount: 0,
-    playerTwoWinCount: 0
+    playerOneWinCount: number,
+    playerTwoWinCount: number
 }
 
 const initalState: TicTacState = {
