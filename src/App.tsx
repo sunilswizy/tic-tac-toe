@@ -16,14 +16,14 @@ function App() {
           <h1>TIC - TAC - TOE</h1>
         </div>
         <div className='board'>
-          <PlayerScore player={1} score={playerOneWinCount}/>
           <div>
             <BoxContainer />
           </div>
-          <PlayerScore player={2} score={playerTwoWinCount}/>
         </div>
         <div className='reset-button'>
-            <button onClick={() => dispatch(restartGame())}>Restart</button>
+          <PlayerScore player='X' score={playerOneWinCount}/>
+          <PlayerScore player={0} score={playerOneWinCount}/>
+          <PlayerScore player='O' score={playerTwoWinCount}/>
         </div>
     </div>
   );
