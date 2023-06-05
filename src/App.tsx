@@ -1,19 +1,29 @@
 import React from 'react';
 import './App.css';
 import BoxContainer from './components/box-container/box.container.component';
-import { useDispatch, useSelector } from 'react-redux';
-import { restartGame } from './redux/tic-tac/actions';
+import {  useSelector } from 'react-redux';
 import PlayerScore from './components/player-score/player.score.component';
 import { RootState } from './redux/root-reducer';
 
 function App() {
-  const dispatch = useDispatch();
-  const { playerOneWinCount, playerTwoWinCount } = useSelector((state: RootState) => state.tic)
+  const { playerOneWinCount, playerTwoWinCount, tieCount, isTie, isCompleted, nextMove} = useSelector((state: RootState) => state.tic)
 
   return (
     <div className='parent'>
         <div className='heading'>
-          <h1>TIC - TAC - TOE</h1>
+          {
+              isTie ? 
+              (
+                <h1>TIED!</h1>
+              )
+              :
+              isCompleted ?
+              (
+                nextMove === 'O' ? (<h1>X WINS</h1>) : (<h1>O WINS</h1>)
+              )
+              :
+              (<h1>TIC - TAC - TOE</h1>)
+          }
         </div>
         <div className='board'>
           <div>
@@ -22,7 +32,7 @@ function App() {
         </div>
         <div className='reset-button'>
           <PlayerScore player='X' score={playerOneWinCount}/>
-          <PlayerScore player={0} score={playerOneWinCount}/>
+          <PlayerScore player={0} score={tieCount}/>
           <PlayerScore player='O' score={playerTwoWinCount}/>
         </div>
     </div>

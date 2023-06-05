@@ -20,9 +20,12 @@ export const userMakesMove = (state: TicTacState, id: number) => {
     let newState: TicTacState = {
         box: updatedBox,
         nextMove: state.nextMove === 'X' ? 'O' : 'X',
-        isCompleted: gameCompleted,
+        isCompleted: state.movesCount === 8 || gameCompleted,
         playerOneWinCount: (state.nextMove === 'X' && gameCompleted) ? state.playerOneWinCount + 1 : state.playerOneWinCount,
-        playerTwoWinCount: (state.nextMove === 'O' && gameCompleted) ? state.playerTwoWinCount + 1 : state.playerTwoWinCount
+        playerTwoWinCount: (state.nextMove === 'O' && gameCompleted) ? state.playerTwoWinCount + 1 : state.playerTwoWinCount,
+        tieCount: (state.movesCount === 8 && !gameCompleted) ? state.tieCount + 1 : state.tieCount,
+        movesCount: state.movesCount + 1,
+        isTie: state.movesCount === 8 && !gameCompleted
     };
 
     return newState;
@@ -59,8 +62,11 @@ export const resetBoard = (state: TicTacState) => {
         box: initalBoxState,
         nextMove: 'X',
         isCompleted: false,
+        isTie: false,
         playerOneWinCount: state.playerOneWinCount,
-        playerTwoWinCount: state.playerTwoWinCount
+        playerTwoWinCount: state.playerTwoWinCount,
+        tieCount: state.tieCount,
+        movesCount: 0
     } 
     
     return newState;

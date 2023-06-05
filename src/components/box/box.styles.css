@@ -32,6 +32,10 @@
     border-right: 9px solid rgb(95, 242, 227);
 }
 
+/* .border-animate{
+    animation: animate-winner 2s ease-in-out 0ms 5;
+} */
+
 .win-X{
     animation: animate-winner 2s ease-in-out 0ms 5;
     opacity: 1 !important;

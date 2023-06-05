@@ -7,16 +7,22 @@ export interface TicTacState {
     box: TicTacToe[],
     nextMove: 'X' | 'O',
     isCompleted: boolean,
+    isTie: boolean,
     playerOneWinCount: number,
-    playerTwoWinCount: number
+    playerTwoWinCount: number,
+    tieCount: number,
+    movesCount: number
 }
 
 const initalState: TicTacState = {
     box: initalBoxState,
     nextMove: 'X',
     isCompleted: false,
+    isTie: true,
     playerOneWinCount: 0,
-    playerTwoWinCount: 0
+    playerTwoWinCount: 0,
+    tieCount: 0,
+    movesCount: 0
 }
 
 const reducer = (state: TicTacState = initalState, action: Actions): TicTacState => {
