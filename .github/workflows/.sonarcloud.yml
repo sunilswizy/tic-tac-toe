@@ -1,0 +1,31 @@
+name: SonarCloud Autoscan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonarcloud-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3' 
+
+      - name: Install SonarCloud Scanner
+        run: pip install sonarcloud
+
+      - name: Run SonarCloud analysis
+        env:
+          SONAR_TOKEN: 'bbe43c3770999940a5242a13d20708354858c865'
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey='tic-tac-toe' \
+            -Dsonar.organization='sunilswizy' \
+            -Dsonar.sources=./  # Adjust this path if necessary
