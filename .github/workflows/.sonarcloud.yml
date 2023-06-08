@@ -15,6 +15,16 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: my-custom-directory
+          args: >
+            -Dsonar.organization=iamneo-production
+            -Dsonar.projectKey=sunilswizy_tic-tac-toe
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.sources=lib/
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.verbose=true
         env:
           SONAR_TOKEN: 811c9a490983734401ba4e491eaefc8bfa7281de
           SONAR_PROJECT_KEY: sunilswizy_tic-tac-toe
