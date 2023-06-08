@@ -13,10 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add your build steps here
-      # ...
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: 811c9a490983734401ba4e491eaefc8bfa7281de
+          SONAR_PROJECT_KEY: sunilswizy_tic-tac-toe
+          SONAR_ORGANIZATION: iamneo-production
