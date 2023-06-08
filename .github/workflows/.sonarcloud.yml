@@ -16,7 +16,7 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
-          projectBaseDir: my-custom-directory
+          projectBaseDir: /
           args: >
             -Dsonar.organization=iamneo-production
             -Dsonar.projectKey=sunilswizy_tic-tac-toe
