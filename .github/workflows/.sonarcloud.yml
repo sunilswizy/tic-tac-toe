@@ -1,27 +1,34 @@
-name: Sonar Cloud - Branch Analysis
-
-on:
+name: Build
+'on':
   push:
-    branches: 
+    branches:
       - main
-
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 jobs:
-  sonarcloud:
-    name: Build (Sonar Cloud)
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - uses: actions/checkout@v2
+        with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
-    - name: Node install dependencies
-      run: npm install
+      - name: Node install dependencies
+        run: npm install
 
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: 'bbe43c3770999940a5242a13d20708354858c865'
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: 976dd45b-837a-4b59-983d-a53ae91ce314
+          SONAR_TOKEN: 811c9a490983734401ba4e491eaefc8bfa7281de
+        run: >-
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          -Dsonar.projectKey=sunilswizy_tic-tac-toe
+          -Dsonar.login=811c9a490983734401ba4e491eaefc8bfa7281de
