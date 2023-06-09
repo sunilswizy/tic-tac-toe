@@ -18,7 +18,7 @@ const initalState: TicTacState = {
     box: initalBoxState,
     nextMove: 'X',
     isCompleted: false,
-    isTie: true,
+    isTie: false,
     playerOneWinCount: 0,
     playerTwoWinCount: 0,
     tieCount: 0,
