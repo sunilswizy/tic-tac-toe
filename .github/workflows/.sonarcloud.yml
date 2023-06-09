@@ -1,41 +1,41 @@
-name: Build
+# name: Build
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '18.x'        
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: '18.x'        
 
-      - run: npm ci
-      - run: npm run build
-      - uses: w9jds/firebase-action@master 
-        with:
-          args: deploy --only hosting
-        env: 
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE }}
+#       - run: npm ci
+#       - run: npm run build
+#       - uses: w9jds/firebase-action@master 
+#         with:
+#           args: deploy --only hosting
+#         env: 
+#           FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE }}
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: /
-          args: >
-            -Dsonar.organization=iamneo-production
-            -Dsonar.projectKey=sunilswizy_tic-tac-toe
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=lib/
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.verbose=true
-        env:
-          SONAR_TOKEN: 811c9a490983734401ba4e491eaefc8bfa7281de
-          SONAR_PROJECT_KEY: sunilswizy_tic-tac-toe
-          SONAR_ORGANIZATION: iamneo-production
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         with:
+#           projectBaseDir: /
+#           args: >
+#             -Dsonar.organization=iamneo-production
+#             -Dsonar.projectKey=sunilswizy_tic-tac-toe
+#             -Dsonar.python.coverage.reportPaths=coverage.xml
+#             -Dsonar.sources=lib/
+#             -Dsonar.test.exclusions=tests/**
+#             -Dsonar.tests=tests/
+#             -Dsonar.verbose=true
+#         env:
+#           SONAR_TOKEN: 811c9a490983734401ba4e491eaefc8bfa7281de
+#           SONAR_PROJECT_KEY: sunilswizy_tic-tac-toe
+#           SONAR_ORGANIZATION: iamneo-production
