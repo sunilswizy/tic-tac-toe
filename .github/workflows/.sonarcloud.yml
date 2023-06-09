@@ -21,7 +21,7 @@ jobs:
         with:
           args: deploy --only hosting
         env: 
-          FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE }}'
+          FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SWIZY_TIC_TAC_TOE }}
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
