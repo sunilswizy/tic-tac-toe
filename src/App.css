@@ -48,3 +48,12 @@
   height: 100vh;
   gap:5px
 }
+
+
+
+
+@media only screen and (min-width: 500px) and (max-width: 991px){ 
+    .heading {
+      font-size: 28px;
+    }
+}

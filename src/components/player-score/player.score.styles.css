@@ -44,3 +44,73 @@
     margin-top: 0;
 }
 
+
+@media only screen and (min-width: 500px) and (max-width: 991px){ 
+
+    .player-name {
+      font-size: 13px;
+    }
+
+    .scoreBox {
+      width: 45px;
+      height: 45px;
+    }
+
+    .scoreBox span {
+      font-size: 16px;
+    }
+
+}
+
+
+@media only screen and (min-width: 440px) and (max-width: 500px){ 
+
+    .player-name {
+      font-size: 11px;
+    }
+
+    .scoreBox {
+      width: 40px;
+      height: 40px;
+    }
+
+    .scoreBox span {
+      font-size: 14px;
+    }
+
+}
+
+@media only screen and (min-width: 360px) and (max-width: 440px){ 
+
+    .player-name {
+      font-size: 10px;
+    }
+
+    .scoreBox {
+      width: 35px;
+      height: 35px;
+    }
+
+    .scoreBox span {
+      font-size: 12px;
+    }
+
+}
+
+
+@media only screen and (max-width: 360px){ 
+
+     .player-name {
+        font-size: 10px;
+     }
+  
+      .scoreBox {
+        width: 35px;
+        height: 35px;
+      }
+  
+      .scoreBox span {
+        font-size: 12px;
+      }
+
+}
